@@ -28,6 +28,9 @@ function draw() {
   
   // Display the estimated length
   displayLength(length);
+  
+  // Draw x-axis and y-axis
+  drawAxis();
 }
 
 function drawFunction() {
@@ -76,9 +79,26 @@ function calculateLength(segments) {
 
 function displayLength(length) {
   // Display the estimated length
-  textSize(20);
-  textAlign(CENTER);
-  text("Estimated Length: " + length.toFixed(4), width / 2, height - 20);
+  textSize(16);
+  textAlign(LEFT, BOTTOM);
+  text("Estimated Length: " + length.toFixed(4), 10, height - 10);
+}
+
+function drawAxis() {
+  // Draw x-axis
+  stroke(0);
+  line(0, height / 2, width, height / 2);
+  
+  // Draw y-axis
+  line(width / 2, 0, width / 2, height);
+  
+  // Draw x-axis label
+  textAlign(CENTER, TOP);
+  text("x", width - 10, height / 2 - 20);
+  
+  // Draw y-axis label
+  textAlign(RIGHT, BOTTOM);
+  text("f(x)", width / 2 - 10, 20);
 }
 
 // Define the function
